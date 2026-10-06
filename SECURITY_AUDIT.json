@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-06",
+  "scope": "All files in this release directory, including hidden files, source snapshots, data and embedded ZIP contents if present. No Git directory/history is present.",
+  "files_scanned": 1161,
+  "archives_scanned": 0,
+  "rules": [
+    "private_key",
+    "aws_access_key",
+    "github_token",
+    "huggingface_token",
+    "openai_or_service_key",
+    "slack_token",
+    "google_api_key",
+    "jwt",
+    "credential_assignment",
+    "credential_url",
+    "signed_url",
+    "user_home_path",
+    "known_private_identifier",
+    "private_network_url"
+  ],
+  "sensitive_filename_checks": true,
+  "findings": [],
+  "limitations": "Pattern-based scan and curated-file review, not a guarantee that arbitrary unknown credentials cannot be present. Public PDB depositor/citation metadata and upstream copyright contacts are preserved.",
+  "finder_metadata_removed": 7,
+  "packaging_exclusions": [
+    ".DS_Store",
+    "__pycache__",
+    "*.pyc"
+  ],
+  "finder_note": "Finder may recreate .DS_Store while browsing; these files are removed when found and always excluded from the release archive and checksums."
+}

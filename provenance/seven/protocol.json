@@ -1,0 +1,64 @@
+{
+  "purpose": "Seven additional deposited-structure targets; compare synthetic MSAs with natural MSAs, no MSA, and enabled query-only MSA.",
+  "selection": "Selected by deposited contiguous reference coverage and measured MSA depth before OpenFold outcomes. CspB excluded after depth screen in favor of antifreeze; its already queued DPLM generation retained outside the comparison.",
+  "dplm": {
+    "model": "airkingbd/dplm_650m",
+    "revision": "7a7e651baa667d094aba05e9dc1cf52a3332110a",
+    "source_commit": "8a2e15e53416b4536f03f79ad1f6f6a9cbd5e19d",
+    "mask_fractions": [
+      0.4,
+      0.6
+    ],
+    "variants_per_pool": 50,
+    "seed": 42,
+    "batch_size": 16,
+    "max_iter": 100,
+    "sampling_strategy": "gumbel_argmax",
+    "temperature": 1,
+    "fixed_residues": [],
+    "identity_filter": false,
+    "adaptive_mask": false,
+    "acceptance": "First 50 distinct canonical query-length variants; exclude exact query copies. No folding-score selection. Unmasked random positions preserve query context within each generation call."
+  },
+  "openfold3": {
+    "version": "0.4.0",
+    "source_commit": "af111e167d3035fb10a048d2c1608243b660b443",
+    "checkpoint": "of3-p2-155k",
+    "model_seed": 2746317213,
+    "diffusion_samples": 5,
+    "templates": false,
+    "ligands": false,
+    "query": "Same original protein sequence in every arm; variants serve only as MSA rows.",
+    "arms": [
+      "no_msa",
+      "query_only",
+      "natural_all",
+      "natural_50",
+      "synthetic_40",
+      "synthetic_60"
+    ],
+    "msa_server": false,
+    "custom_msa_enabled": true,
+    "custom_database_preprocessing_cap": 50000,
+    "msa_embedding_cap": 1024,
+    "no_msa_semantics": "use_msas=False and use_main_msas=False; upstream featurizer supplies a gap row and zero profile. This does not remove the MSA neural-network layers.",
+    "query_only_semantics": "Query-only A3M with use_msas=True and use_main_msas=True, retaining query-derived MSA features."
+  },
+  "natural_msa": {
+    "service": "https://api.colabfold.com",
+    "use_env": true,
+    "use_filter": true,
+    "paired": false,
+    "deduplication": "Distinct aligned rows after removal of lowercase insertions and dots; query excluded from depth counts.",
+    "natural_50": "Random seed 42 sample of up to 50 distinct nonquery rows. Top7 has only four, so this is an order-permuted four-hit control, not a 50-hit condition."
+  },
+  "limitations": [
+    "Convenience sample of seven short proteins, not a held-out performance estimate; model training overlap is possible.",
+    "One generated pool and one model seed per arm; five diffusion samples are correlated.",
+    "Top7 is designed and its search hits are not established natural homologs.",
+    "CI2 and Top7 use resolved contiguous segments. Top7 MSE is mapped to methionine. Acylphosphatase is compared to the first deposited NMR model.",
+    "No templates or ligands; myoglobin reference contains heme, while prediction does not.",
+    "Search depth is not independent evolutionary information. Deep inputs exceed the model's 1024-row embedding cap.",
+    "No random-mutation MSA control or experimental validation of variant function."
+  ]
+}

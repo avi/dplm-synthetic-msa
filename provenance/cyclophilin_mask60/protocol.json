@@ -1,0 +1,14 @@
+{
+  "fixed_positions": "",
+  "mutable_positions": "",
+  "filter_identity": false,
+  "adaptive_mask": false,
+  "mask_fraction": 0.6,
+  "sampling_strategy": "gumbel_argmax",
+  "temperature": 1.0,
+  "num_variants": 50,
+  "max_iter": 100,
+  "seed": 42,
+  "selection": "First 50 unique canonical query-length variants; no identity filtering; exact query copies excluded",
+  "query_conditioning": "Fresh random 60% mask per candidate; all positions eligible; no permanently protected residue"
+}

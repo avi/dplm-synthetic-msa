@@ -1,0 +1,14 @@
+{
+  "query": "UniProt P62937",
+  "reference": "PDB 1CWA chain A",
+  "reference_url": "https://files.rcsb.org/download/1CWA.cif",
+  "dplm_metadata": "cyclophilin/metadata.json",
+  "openfold3_version": "0.4.0",
+  "checkpoint": "of3-p2-155k",
+  "model_seed": 2746317213,
+  "diffusion_samples": 5,
+  "templates": false,
+  "ligands": false,
+  "baseline_reuse": true,
+  "changed_setting": "mask_fraction: 0.4 -> 0.6"
+}

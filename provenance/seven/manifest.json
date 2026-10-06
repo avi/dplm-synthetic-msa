@@ -1,0 +1,142 @@
+[
+  {
+    "name": "ubiquitin",
+    "pdb": "1UBQ",
+    "length": 76,
+    "sequence": "MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG",
+    "contiguous": true,
+    "first_label_id": 1,
+    "last_label_id": 76,
+    "entity_sequences": [
+      "MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG"
+    ],
+    "method": [
+      "X-RAY DIFFRACTION"
+    ],
+    "title": [
+      "STRUCTURE OF UBIQUITIN REFINED AT 1.8 ANGSTROMS RESOLUTION"
+    ],
+    "query": "MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG",
+    "reference_note": "Chain A, all observed contiguous residues; no templates or ligands provided."
+  },
+  {
+    "name": "myoglobin",
+    "pdb": "1MBN",
+    "length": 153,
+    "sequence": "VLSEGEWQLVLHVWAKVEADVAGHGQDILIRLFKSHPETLEKFDRFKHLKTEAEMKASEDLKKHGVTVLTALGAILKKKGHHEAELKPLAQSHATKHKIPIKYLEFISEAIIHVLHSRHPGDFGADAQGAMNKALELFRKDIAAKYKELGYQG",
+    "contiguous": true,
+    "first_label_id": 1,
+    "last_label_id": 153,
+    "entity_sequences": [
+      "VLSEGEWQLVLHVWAKVEADVAGHGQDILIRLFKSHPETLEKFDRFKHLKTEAEMKASEDLKKHGVTVLTALGAILKKKG\nHHEAELKPLAQSHATKHKIPIKYLEFISEAIIHVLHSRHPGDFGADAQGAMNKALELFRKDIAAKYKELGYQG"
+    ],
+    "method": [
+      "X-RAY DIFFRACTION"
+    ],
+    "title": [
+      "The stereochemistry of the protein myoglobin"
+    ],
+    "query": "VLSEGEWQLVLHVWAKVEADVAGHGQDILIRLFKSHPETLEKFDRFKHLKTEAEMKASEDLKKHGVTVLTALGAILKKKGHHEAELKPLAQSHATKHKIPIKYLEFISEAIIHVLHSRHPGDFGADAQGAMNKALELFRKDIAAKYKELGYQG",
+    "reference_note": "Chain A, all observed contiguous residues; no templates or ligands provided. Heme omitted from predictions."
+  },
+  {
+    "name": "lysozyme",
+    "pdb": "1LYZ",
+    "length": 129,
+    "sequence": "KVFGRCELAAAMKRHGLDNYRGYSLGNWVCAAKFESNFNTQATNRNTDGSTDYGILQINSRWWCNDGRTPGSRNLCNIPCSALLSSDITASVNCAKKIVSDGNGMNAWVAWRNRCKGTDVQAWIRGCRL",
+    "contiguous": true,
+    "first_label_id": 1,
+    "last_label_id": 129,
+    "entity_sequences": [
+      "KVFGRCELAAAMKRHGLDNYRGYSLGNWVCAAKFESNFNTQATNRNTDGSTDYGILQINSRWWCNDGRTPGSRNLCNIPC\nSALLSSDITASVNCAKKIVSDGNGMNAWVAWRNRCKGTDVQAWIRGCRL"
+    ],
+    "method": [
+      "X-RAY DIFFRACTION"
+    ],
+    "title": [
+      "Real-space refinement of the structure of hen egg-white lysozyme"
+    ],
+    "query": "KVFGRCELAAAMKRHGLDNYRGYSLGNWVCAAKFESNFNTQATNRNTDGSTDYGILQINSRWWCNDGRTPGSRNLCNIPCSALLSSDITASVNCAKKIVSDGNGMNAWVAWRNRCKGTDVQAWIRGCRL",
+    "reference_note": "Chain A, all observed contiguous residues; no templates or ligands provided."
+  },
+  {
+    "name": "ci2",
+    "pdb": "2CI2",
+    "length": 65,
+    "sequence": "NLKTEWPELVGKSVEEAKKVILQDKPEAQIIVLPVGTIVTMEYRIDRVRLFVDKLDNIAEVPRVG",
+    "contiguous": true,
+    "first_label_id": 19,
+    "last_label_id": 83,
+    "entity_sequences": [
+      "SSVEKKPEGVNTGAGDRHNLKTEWPELVGKSVEEAKKVILQDKPEAQIIVLPVGTIVTMEYRIDRVRLFVDKLDNIAEVP\nRVG"
+    ],
+    "method": [
+      "X-RAY DIFFRACTION"
+    ],
+    "title": [
+      "CRYSTAL AND MOLECULAR STRUCTURE OF THE SERINE PROTEINASE INHIBITOR CI-2 FROM BARLEY SEEDS"
+    ],
+    "query": "NLKTEWPELVGKSVEEAKKVILQDKPEAQIIVLPVGTIVTMEYRIDRVRLFVDKLDNIAEVPRVG",
+    "reference_note": "Chain A, all observed contiguous residues; no templates or ligands provided. Labels 19\u201383; unresolved N terminus excluded."
+  },
+  {
+    "name": "top7",
+    "pdb": "1QYS",
+    "length": 92,
+    "sequence": "DIQVQVNIDDNGKNFDYTYTVTTESELQKVLNELXDYIKKQGAKRVRISITARTKKEAEKFAAILIKVFAELGYNDINVTFDGDTVTVEGQL",
+    "contiguous": true,
+    "first_label_id": 3,
+    "last_label_id": 94,
+    "entity_sequences": [
+      "MGDIQVQVNIDDNGKNFDYTYTVTTESELQKVLNELMDYIKKQGAKRVRISITARTKKEAEKFAAILIKVFAELGYNDIN\nVTFDGDTVTVEGQLEGGSLEHHHHHH"
+    ],
+    "method": [
+      "X-RAY DIFFRACTION"
+    ],
+    "title": [
+      "Crystal structure of Top7: A computationally designed protein with a novel fold"
+    ],
+    "query": "DIQVQVNIDDNGKNFDYTYTVTTESELQKVLNELMDYIKKQGAKRVRISITARTKKEAEKFAAILIKVFAELGYNDINVTFDGDTVTVEGQL",
+    "reference_note": "Chain A, all observed contiguous residues; no templates or ligands provided. Designed negative control; labels 3\u201394; MSE37 mapped to canonical methionine; terminal tag excluded."
+  },
+  {
+    "name": "acylphosphatase",
+    "pdb": "1APS",
+    "length": 98,
+    "sequence": "STARPLKSVDYEVFGRVQGVCFRMYAEDEARKIGVVGWVKNTSKGTVTGQVQGPEEKVNSMKSWLSKVGSPSSRIDRTNFSNEKTISKLEYSNFSVRY",
+    "contiguous": true,
+    "first_label_id": 1,
+    "last_label_id": 98,
+    "entity_sequences": [
+      "STARPLKSVDYEVFGRVQGVCFRMYAEDEARKIGVVGWVKNTSKGTVTGQVQGPEEKVNSMKSWLSKVGSPSSRIDRTNF\nSNEKTISKLEYSNFSVRY"
+    ],
+    "method": [
+      "SOLUTION NMR"
+    ],
+    "title": [
+      "THREE-DIMENSIONAL STRUCTURE OF ACYLPHOSPHATASE. REFINEMENT AND STRUCTURE ANALYSIS"
+    ],
+    "query": "STARPLKSVDYEVFGRVQGVCFRMYAEDEARKIGVVGWVKNTSKGTVTGQVQGPEEKVNSMKSWLSKVGSPSSRIDRTNFSNEKTISKLEYSNFSVRY",
+    "reference_note": "Chain A, all observed contiguous residues; no templates or ligands provided. NMR first model reference."
+  },
+  {
+    "name": "antifreeze",
+    "pdb": "1MSI",
+    "length": 66,
+    "query": "AAQASVVANQLIPINTALTLVMMRSEVVTPVGIPAEDIPRLVSMQVNRAVPLGTTLMPDMVKGYAA",
+    "sequence": "AAQASVVANQLIPINTALTLVMMRSEVVTPVGIPAEDIPRLVSMQVNRAVPLGTTLMPDMVKGYAA",
+    "contiguous": true,
+    "first_label_id": 1,
+    "last_label_id": 66,
+    "entity_sequences": [
+      "AAQASVVANQLIPINTALTLVMMRSEVVTPVGIPAEDIPRLVSMQVNRAVPLGTTLMPDMVKGYAAKDEL"
+    ],
+    "method": [
+      "X-RAY DIFFRACTION"
+    ],
+    "title": [
+      "STRUCTURE OF ANTIFREEZE GLYCOPROTEIN QAE(HPLC 12)"
+    ],
+    "reference_note": "Ocean pout type III antifreeze protein; observed contiguous chain A. No templates or ligands. Uses deposited recombinant sequence, labels 1\u201366, omits unresolved C-terminal KDEL; PDB marks one mutation."
+  }
+]

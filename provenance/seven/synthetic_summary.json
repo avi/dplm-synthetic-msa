@@ -1,0 +1,184 @@
+{
+  "ubiquitin": {
+    "40": {
+      "variants": 50,
+      "candidates": 352,
+      "mutations_mean": 1.66,
+      "identity_mean": 0.9781578947368421,
+      "identity_min": 0.9605263157894737,
+      "identity_max": 0.9868421052631579,
+      "pairwise_identity_mean": 0.9656759545923632,
+      "neff80": 1.0,
+      "neff95": 1.2145057620076627,
+      "positions_never_masked": []
+    },
+    "60": {
+      "variants": 50,
+      "candidates": 240,
+      "mutations_mean": 1.84,
+      "identity_mean": 0.9757894736842105,
+      "identity_min": 0.9605263157894737,
+      "identity_max": 0.9868421052631579,
+      "pairwise_identity_mean": 0.9630856553147575,
+      "neff80": 1.0,
+      "neff95": 1.3977768869053264,
+      "positions_never_masked": []
+    }
+  },
+  "myoglobin": {
+    "40": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 39.12,
+      "identity_mean": 0.7443137254901961,
+      "identity_min": 0.6797385620915033,
+      "identity_max": 0.7973856209150327,
+      "pairwise_identity_mean": 0.6120107650903498,
+      "neff80": 51.0,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    },
+    "60": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 62.16,
+      "identity_mean": 0.5937254901960785,
+      "identity_min": 0.46405228758169936,
+      "identity_max": 0.6470588235294117,
+      "pairwise_identity_mean": 0.4733000128155838,
+      "neff80": 51.0,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    }
+  },
+  "lysozyme": {
+    "40": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 22.32,
+      "identity_mean": 0.8269767441860465,
+      "identity_min": 0.7674418604651163,
+      "identity_max": 0.8837209302325582,
+      "pairwise_identity_mean": 0.7438394892840857,
+      "neff80": 22.20420819490587,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    },
+    "60": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 36.56,
+      "identity_mean": 0.7165891472868218,
+      "identity_min": 0.43410852713178294,
+      "identity_max": 0.7829457364341086,
+      "pairwise_identity_mean": 0.6295972032223742,
+      "neff80": 51.0,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    }
+  },
+  "ci2": {
+    "40": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 13.3,
+      "identity_mean": 0.7953846153846154,
+      "identity_min": 0.6923076923076923,
+      "identity_max": 0.8769230769230769,
+      "pairwise_identity_mean": 0.7015505279034692,
+      "neff80": 27.52733990147783,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    },
+    "60": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 21.6,
+      "identity_mean": 0.6676923076923077,
+      "identity_min": 0.4461538461538461,
+      "identity_max": 0.7538461538461538,
+      "pairwise_identity_mean": 0.5925309200603318,
+      "neff80": 51.0,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    }
+  },
+  "top7": {
+    "40": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 31.06,
+      "identity_mean": 0.6623913043478261,
+      "identity_min": 0.6195652173913043,
+      "identity_max": 0.7282608695652174,
+      "pairwise_identity_mean": 0.4755072463768116,
+      "neff80": 51.0,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    },
+    "60": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 49.34,
+      "identity_mean": 0.46369565217391295,
+      "identity_min": 0.4130434782608695,
+      "identity_max": 0.5217391304347826,
+      "pairwise_identity_mean": 0.26359761295822676,
+      "neff80": 51.0,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    }
+  },
+  "acylphosphatase": {
+    "40": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 15.28,
+      "identity_mean": 0.8440816326530612,
+      "identity_min": 0.7755102040816326,
+      "identity_max": 0.8979591836734694,
+      "pairwise_identity_mean": 0.776062424969988,
+      "neff80": 8.11757932683002,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    },
+    "60": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 25.12,
+      "identity_mean": 0.7436734693877551,
+      "identity_min": 0.5612244897959184,
+      "identity_max": 0.8163265306122449,
+      "pairwise_identity_mean": 0.6931972789115647,
+      "neff80": 40.916666666666664,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    }
+  },
+  "antifreeze": {
+    "40": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 20.74,
+      "identity_mean": 0.6857575757575758,
+      "identity_min": 0.6060606060606061,
+      "identity_max": 0.7575757575757576,
+      "pairwise_identity_mean": 0.5044087938205585,
+      "neff80": 51.0,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    },
+    "60": {
+      "variants": 50,
+      "candidates": 64,
+      "mutations_mean": 36.56,
+      "identity_mean": 0.44606060606060605,
+      "identity_min": 0.3939393939393939,
+      "identity_max": 0.5757575757575757,
+      "pairwise_identity_mean": 0.2367082590612002,
+      "neff80": 51.0,
+      "neff95": 51.0,
+      "positions_never_masked": []
+    }
+  }
+}

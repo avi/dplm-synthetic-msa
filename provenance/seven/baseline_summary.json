@@ -1,0 +1,51 @@
+{
+  "ubiquitin": {
+    "raw_nonquery_rows": 21668,
+    "distinct_nonquery_rows": 20917,
+    "natural_50_nonquery_rows": 50,
+    "coverage_mean": 0.9084772396162275,
+    "query_length": 76
+  },
+  "myoglobin": {
+    "raw_nonquery_rows": 1336,
+    "distinct_nonquery_rows": 1296,
+    "natural_50_nonquery_rows": 50,
+    "coverage_mean": 0.8499808359557816,
+    "query_length": 153
+  },
+  "lysozyme": {
+    "raw_nonquery_rows": 5504,
+    "distinct_nonquery_rows": 5456,
+    "natural_50_nonquery_rows": 50,
+    "coverage_mean": 0.7620996158130443,
+    "query_length": 129
+  },
+  "ci2": {
+    "raw_nonquery_rows": 4257,
+    "distinct_nonquery_rows": 3865,
+    "natural_50_nonquery_rows": 50,
+    "coverage_mean": 0.8878455567718182,
+    "query_length": 65
+  },
+  "top7": {
+    "raw_nonquery_rows": 5,
+    "distinct_nonquery_rows": 4,
+    "natural_50_nonquery_rows": 4,
+    "coverage_mean": 0.9646739130434783,
+    "query_length": 92
+  },
+  "acylphosphatase": {
+    "raw_nonquery_rows": 10655,
+    "distinct_nonquery_rows": 10406,
+    "natural_50_nonquery_rows": 50,
+    "coverage_mean": 0.8694591424884389,
+    "query_length": 98
+  },
+  "antifreeze": {
+    "raw_nonquery_rows": 215,
+    "distinct_nonquery_rows": 201,
+    "natural_50_nonquery_rows": 50,
+    "coverage_mean": 0.8438112467963214,
+    "query_length": 66
+  }
+}

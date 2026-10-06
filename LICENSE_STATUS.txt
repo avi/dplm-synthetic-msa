@@ -1,0 +1,7 @@
+License status
+==============
+Original project code and documentation are licensed under MIT; see LICENSE.
+Copyright (c) 2026 DRAMBio.
+Third-party components, model parameters and reference data retain their own
+terms. Upstream notices are preserved in third_party/ and documented in
+THIRD_PARTY_NOTICES.txt. No model weights are distributed here.

@@ -1,0 +1,49 @@
+Upstream software, models and experimental data
+===============================================
+
+DPLM: https://github.com/bytedance/dplm
+Source commit: 8a2e15e53416b4536f03f79ad1f6f6a9cbd5e19d
+Source license: Apache-2.0; copy in third_party/DPLM-LICENSE.txt.
+Checkpoint: https://huggingface.co/airkingbd/dplm_650m
+Revision: 7a7e651baa667d094aba05e9dc1cf52a3332110a
+The wrapper fetches upstream inference code and weights at runtime; neither is
+vendored into this release. Model weights retain their upstream terms.
+
+OpenFold-3: https://github.com/aqlaboratory/openfold-3
+Version 0.4.0; source af111e167d3035fb10a048d2c1608243b660b443.
+Source license: Apache-2.0; copy in third_party/OpenFold3-LICENSE.txt.
+Checkpoint: of3-p2-155k. The wrapper downloads it to your Modal account.
+Source and model/data terms remain those of their respective upstream releases.
+
+Foldism: https://github.com/hgbrian/foldism
+The OpenFold Modal wrapper credits Foldism's backends/openfold3.py as its basis.
+MIT notice preserved in third_party/foldism-LICENSE.txt.
+The wrapper adds custom MSA packaging, configuration, caching and local output
+handling; it is not the unmodified upstream Foldism source.
+
+Boltz: https://github.com/jwohlwend/boltz
+The optional MSA-precompute helper imports Boltz's MMseqs2 client.
+MIT notice in third_party/boltz-LICENSE.txt. Boltz code is not vendored here.
+Natural alignments were retrieved through https://api.colabfold.com using the
+Boltz client. Database snapshots and returned search hits may change over time;
+exact benchmark input MSAs are included rather than relying on repeat searches.
+
+RCSB PDB / wwPDB experimental structures:
+https://www.rcsb.org/structure/1RX2 (DHFR)
+https://www.rcsb.org/structure/2TRX (thioredoxin)
+https://www.rcsb.org/structure/1CWA (cyclophilin A)
+https://www.rcsb.org/structure/1UBQ (ubiquitin)
+https://www.rcsb.org/structure/1MBN (myoglobin)
+https://www.rcsb.org/structure/1LYZ (lysozyme)
+https://www.rcsb.org/structure/2CI2 (CI2)
+https://www.rcsb.org/structure/1QYS (Top7)
+https://www.rcsb.org/structure/1APS (acylphosphatase)
+https://www.rcsb.org/structure/1MSI (antifreeze)
+Reference CIFs preserve deposition/citation metadata. Generated predictions are
+labeled separately and are not experimental structures. Original query sources
+for the first three proteins: UniProt P0ABQ4, P0AA25 (initiator Met removed),
+P62937. Remaining queries use the reference's resolved sequence as documented.
+
+NumPy, Biopython, TM-tools/TM-align, Matplotlib, Requests and Modal are external
+dependencies. Their own notices and terms apply; packages are not vendored.
+No blanket license in this release replaces third-party rights or terms.

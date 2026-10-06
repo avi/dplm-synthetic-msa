@@ -1,0 +1,609 @@
+{
+  "version": "0.1.0",
+  "date": "2026-10-06",
+  "proteins": {
+    "ubiquitin": {
+      "name": "ubiquitin",
+      "query": "MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG",
+      "length": 76,
+      "reference": "1UBQ",
+      "reference_file": "data/ubiquitin/reference.cif",
+      "query_file": "data/ubiquitin/query.fasta",
+      "notes": "Chain A, all observed contiguous residues; no templates or ligands provided.",
+      "natural_depth": 20917
+    },
+    "myoglobin": {
+      "name": "myoglobin",
+      "query": "VLSEGEWQLVLHVWAKVEADVAGHGQDILIRLFKSHPETLEKFDRFKHLKTEAEMKASEDLKKHGVTVLTALGAILKKKGHHEAELKPLAQSHATKHKIPIKYLEFISEAIIHVLHSRHPGDFGADAQGAMNKALELFRKDIAAKYKELGYQG",
+      "length": 153,
+      "reference": "1MBN",
+      "reference_file": "data/myoglobin/reference.cif",
+      "query_file": "data/myoglobin/query.fasta",
+      "notes": "Chain A, all observed contiguous residues; no templates or ligands provided. Heme omitted from predictions.",
+      "natural_depth": 1296
+    },
+    "lysozyme": {
+      "name": "lysozyme",
+      "query": "KVFGRCELAAAMKRHGLDNYRGYSLGNWVCAAKFESNFNTQATNRNTDGSTDYGILQINSRWWCNDGRTPGSRNLCNIPCSALLSSDITASVNCAKKIVSDGNGMNAWVAWRNRCKGTDVQAWIRGCRL",
+      "length": 129,
+      "reference": "1LYZ",
+      "reference_file": "data/lysozyme/reference.cif",
+      "query_file": "data/lysozyme/query.fasta",
+      "notes": "Chain A, all observed contiguous residues; no templates or ligands provided.",
+      "natural_depth": 5456
+    },
+    "ci2": {
+      "name": "ci2",
+      "query": "NLKTEWPELVGKSVEEAKKVILQDKPEAQIIVLPVGTIVTMEYRIDRVRLFVDKLDNIAEVPRVG",
+      "length": 65,
+      "reference": "2CI2",
+      "reference_file": "data/ci2/reference.cif",
+      "query_file": "data/ci2/query.fasta",
+      "notes": "Chain A, all observed contiguous residues; no templates or ligands provided. Labels 19\u201383; unresolved N terminus excluded.",
+      "natural_depth": 3865
+    },
+    "top7": {
+      "name": "top7",
+      "query": "DIQVQVNIDDNGKNFDYTYTVTTESELQKVLNELMDYIKKQGAKRVRISITARTKKEAEKFAAILIKVFAELGYNDINVTFDGDTVTVEGQL",
+      "length": 92,
+      "reference": "1QYS",
+      "reference_file": "data/top7/reference.cif",
+      "query_file": "data/top7/query.fasta",
+      "notes": "Chain A, all observed contiguous residues; no templates or ligands provided. Designed negative control; labels 3\u201394; MSE37 mapped to canonical methionine; terminal tag excluded.",
+      "natural_depth": 4
+    },
+    "acylphosphatase": {
+      "name": "acylphosphatase",
+      "query": "STARPLKSVDYEVFGRVQGVCFRMYAEDEARKIGVVGWVKNTSKGTVTGQVQGPEEKVNSMKSWLSKVGSPSSRIDRTNFSNEKTISKLEYSNFSVRY",
+      "length": 98,
+      "reference": "1APS",
+      "reference_file": "data/acylphosphatase/reference.cif",
+      "query_file": "data/acylphosphatase/query.fasta",
+      "notes": "Chain A, all observed contiguous residues; no templates or ligands provided. NMR first model reference.",
+      "natural_depth": 10406
+    },
+    "antifreeze": {
+      "name": "antifreeze",
+      "query": "AAQASVVANQLIPINTALTLVMMRSEVVTPVGIPAEDIPRLVSMQVNRAVPLGTTLMPDMVKGYAA",
+      "length": 66,
+      "reference": "1MSI",
+      "reference_file": "data/antifreeze/reference.cif",
+      "query_file": "data/antifreeze/query.fasta",
+      "notes": "Ocean pout type III antifreeze protein; observed contiguous chain A. No templates or ligands. Uses deposited recombinant sequence, labels 1\u201366, omits unresolved C-terminal KDEL; PDB marks one mutation.",
+      "natural_depth": 201
+    },
+    "dhfr": {
+      "name": "dhfr",
+      "query": "MISLIAALAVDRVIGMENAMPWNLPADLAWFKRNTLNKPVIMGRHTWESIGRPLPGRKNIILSSQPGTDDRVTWVKSVDEAIAACGDVPEIMVIGGGRVYEQFLPKAQKLYLTHIDAEVEGDTHFPDYEPDDWESVFSEFHDADAQNSHSYCFEILERR",
+      "length": 159,
+      "reference": "1RX2",
+      "reference_file": "data/dhfr/reference.cif",
+      "query_file": "data/dhfr/query.fasta",
+      "notes": "Reference has N37D relative to query and folate/NADP ligands omitted in prediction",
+      "natural_depth": 15000
+    },
+    "thioredoxin": {
+      "name": "thioredoxin",
+      "query": "SDKIIHLTDDSFDTDVLKADGAILVDFWAEWCGPCKMIAPILDEIADEYQGKLTVAKLNIDQNPGTAPKYGIRGIPTLLLFKNGEVAATKVGALSKGQLKEFLDANLA",
+      "length": 108,
+      "reference": "2TRX",
+      "reference_file": "data/thioredoxin/reference.cif",
+      "query_file": "data/thioredoxin/query.fasta",
+      "notes": "Oxidized thioredoxin; crystallization copper and MPD omitted from predictions",
+      "natural_depth": 17314
+    },
+    "cyclophilin": {
+      "name": "cyclophilin",
+      "query": "MVNPTVFFDIAVDGEPLGRVSFELFADKVPKTAENFRALSTGEKGFGYKGSCFHRIIPGFMCQGGDFTRHNGTGGKSIYGEKFEDENFILKHTGPGILSMANAGPNTNGSQFFICTAKTEWLDGKHVVFGKVKEGMNIVEAMERFGSRNGKTSKKITIADCGQLE",
+      "length": 165,
+      "reference": "1CWA",
+      "reference_file": "data/cyclophilin/reference.cif",
+      "query_file": "data/cyclophilin/query.fasta",
+      "notes": "Cyclosporin A-bound reference; cyclosporin omitted from predictions",
+      "natural_depth": 23735
+    }
+  },
+  "conditions": {
+    "ubiquitin__no_msa": {
+      "protein": "ubiquitin",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ubiquitin__query_only": {
+      "protein": "ubiquitin",
+      "arm": "query_only",
+      "category": "main",
+      "msa": "data/ubiquitin/msas/query_only/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ubiquitin__natural_all": {
+      "protein": "ubiquitin",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/ubiquitin/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ubiquitin__natural_50": {
+      "protein": "ubiquitin",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/ubiquitin/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ubiquitin__synthetic_40": {
+      "protein": "ubiquitin",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/ubiquitin/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ubiquitin__synthetic_60": {
+      "protein": "ubiquitin",
+      "arm": "synthetic_60",
+      "category": "main",
+      "msa": "data/ubiquitin/msas/synthetic_60/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "myoglobin__no_msa": {
+      "protein": "myoglobin",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "myoglobin__query_only": {
+      "protein": "myoglobin",
+      "arm": "query_only",
+      "category": "main",
+      "msa": "data/myoglobin/msas/query_only/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "myoglobin__natural_all": {
+      "protein": "myoglobin",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/myoglobin/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "myoglobin__natural_50": {
+      "protein": "myoglobin",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/myoglobin/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "myoglobin__synthetic_40": {
+      "protein": "myoglobin",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/myoglobin/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "myoglobin__synthetic_60": {
+      "protein": "myoglobin",
+      "arm": "synthetic_60",
+      "category": "main",
+      "msa": "data/myoglobin/msas/synthetic_60/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "lysozyme__no_msa": {
+      "protein": "lysozyme",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "lysozyme__query_only": {
+      "protein": "lysozyme",
+      "arm": "query_only",
+      "category": "main",
+      "msa": "data/lysozyme/msas/query_only/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "lysozyme__natural_all": {
+      "protein": "lysozyme",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/lysozyme/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "lysozyme__natural_50": {
+      "protein": "lysozyme",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/lysozyme/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "lysozyme__synthetic_40": {
+      "protein": "lysozyme",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/lysozyme/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "lysozyme__synthetic_60": {
+      "protein": "lysozyme",
+      "arm": "synthetic_60",
+      "category": "main",
+      "msa": "data/lysozyme/msas/synthetic_60/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ci2__no_msa": {
+      "protein": "ci2",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ci2__query_only": {
+      "protein": "ci2",
+      "arm": "query_only",
+      "category": "main",
+      "msa": "data/ci2/msas/query_only/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ci2__natural_all": {
+      "protein": "ci2",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/ci2/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ci2__natural_50": {
+      "protein": "ci2",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/ci2/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ci2__synthetic_40": {
+      "protein": "ci2",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/ci2/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "ci2__synthetic_60": {
+      "protein": "ci2",
+      "arm": "synthetic_60",
+      "category": "main",
+      "msa": "data/ci2/msas/synthetic_60/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "top7__no_msa": {
+      "protein": "top7",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "top7__query_only": {
+      "protein": "top7",
+      "arm": "query_only",
+      "category": "main",
+      "msa": "data/top7/msas/query_only/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "top7__natural_all": {
+      "protein": "top7",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/top7/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "top7__natural_50": {
+      "protein": "top7",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/top7/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "top7__synthetic_40": {
+      "protein": "top7",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/top7/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "top7__synthetic_60": {
+      "protein": "top7",
+      "arm": "synthetic_60",
+      "category": "main",
+      "msa": "data/top7/msas/synthetic_60/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "acylphosphatase__no_msa": {
+      "protein": "acylphosphatase",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "acylphosphatase__query_only": {
+      "protein": "acylphosphatase",
+      "arm": "query_only",
+      "category": "main",
+      "msa": "data/acylphosphatase/msas/query_only/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "acylphosphatase__natural_all": {
+      "protein": "acylphosphatase",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/acylphosphatase/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "acylphosphatase__natural_50": {
+      "protein": "acylphosphatase",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/acylphosphatase/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "acylphosphatase__synthetic_40": {
+      "protein": "acylphosphatase",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/acylphosphatase/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "acylphosphatase__synthetic_60": {
+      "protein": "acylphosphatase",
+      "arm": "synthetic_60",
+      "category": "main",
+      "msa": "data/acylphosphatase/msas/synthetic_60/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "antifreeze__no_msa": {
+      "protein": "antifreeze",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "antifreeze__query_only": {
+      "protein": "antifreeze",
+      "arm": "query_only",
+      "category": "main",
+      "msa": "data/antifreeze/msas/query_only/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "antifreeze__natural_all": {
+      "protein": "antifreeze",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/antifreeze/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "antifreeze__natural_50": {
+      "protein": "antifreeze",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/antifreeze/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "antifreeze__synthetic_40": {
+      "protein": "antifreeze",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/antifreeze/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "antifreeze__synthetic_60": {
+      "protein": "antifreeze",
+      "arm": "synthetic_60",
+      "category": "main",
+      "msa": "data/antifreeze/msas/synthetic_60/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "dhfr__natural_50": {
+      "protein": "dhfr",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/dhfr/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "dhfr__natural_all": {
+      "protein": "dhfr",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/dhfr/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "dhfr__no_msa": {
+      "protein": "dhfr",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "dhfr__exploratory_constrained_50": {
+      "protein": "dhfr",
+      "arm": "exploratory_constrained_50",
+      "category": "exploratory",
+      "msa": "data/dhfr/msas/exploratory_constrained_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "thioredoxin__natural_50": {
+      "protein": "thioredoxin",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/thioredoxin/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "thioredoxin__natural_all": {
+      "protein": "thioredoxin",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/thioredoxin/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "thioredoxin__no_msa": {
+      "protein": "thioredoxin",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "thioredoxin__exploratory_constrained_50": {
+      "protein": "thioredoxin",
+      "arm": "exploratory_constrained_50",
+      "category": "exploratory",
+      "msa": "data/thioredoxin/msas/exploratory_constrained_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "cyclophilin__natural_50": {
+      "protein": "cyclophilin",
+      "arm": "natural_50",
+      "category": "main",
+      "msa": "data/cyclophilin/msas/natural_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "cyclophilin__natural_all": {
+      "protein": "cyclophilin",
+      "arm": "natural_all",
+      "category": "main",
+      "msa": "data/cyclophilin/msas/natural_all/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "cyclophilin__no_msa": {
+      "protein": "cyclophilin",
+      "arm": "no_msa",
+      "category": "main",
+      "msa": null,
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "cyclophilin__exploratory_constrained_50": {
+      "protein": "cyclophilin",
+      "arm": "exploratory_constrained_50",
+      "category": "exploratory",
+      "msa": "data/cyclophilin/msas/exploratory_constrained_50/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "dhfr__synthetic_40": {
+      "protein": "dhfr",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/dhfr/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "thioredoxin__synthetic_40": {
+      "protein": "thioredoxin",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/thioredoxin/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "cyclophilin__synthetic_40": {
+      "protein": "cyclophilin",
+      "arm": "synthetic_40",
+      "category": "main",
+      "msa": "data/cyclophilin/msas/synthetic_40/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "dhfr__synthetic_40_n250": {
+      "protein": "dhfr",
+      "arm": "synthetic_40_n250",
+      "category": "depth_extension",
+      "msa": "data/dhfr/msas/synthetic_40_n250/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "thioredoxin__synthetic_40_n250": {
+      "protein": "thioredoxin",
+      "arm": "synthetic_40_n250",
+      "category": "depth_extension",
+      "msa": "data/thioredoxin/msas/synthetic_40_n250/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "cyclophilin__synthetic_40_n250": {
+      "protein": "cyclophilin",
+      "arm": "synthetic_40_n250",
+      "category": "depth_extension",
+      "msa": "data/cyclophilin/msas/synthetic_40_n250/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    },
+    "cyclophilin__synthetic_60": {
+      "protein": "cyclophilin",
+      "arm": "synthetic_60",
+      "category": "main",
+      "msa": "data/cyclophilin/msas/synthetic_60/custom_database_hits.a3m",
+      "model_seed": 2746317213,
+      "samples": 5
+    }
+  },
+  "counts": {
+    "proteins": 10,
+    "structures": 305,
+    "main_structures": 275,
+    "depth_extension_structures": 15,
+    "exploratory_structures": 15
+  },
+  "openfold3_checkpoint": "of3-p2-155k",
+  "openfold3_version": "0.4.0",
+  "dplm_revision": "7a7e651baa667d094aba05e9dc1cf52a3332110a",
+  "main_protocol": "50 unique variants; fixed random mask fraction per arm; no permanently protected residues, identity filter, adaptive masking or temperature increase. Default Gumbel sampler, 100 steps, generation seed42. Same query folded in every condition.",
+  "exploratory_protocol": "Excluded from main headline. Earlier DHFR/thioredoxin/cyclophilin trials with fixed residues and identity selection; cyclophilin uses vanilla sampling at temperature3. See exact per-pool metadata.",
+  "scope": "Every completed structure condition from the benchmark is included once. Failed/partial generation attempts and excluded CspB depth-screen candidate are not released as benchmark results."
+}

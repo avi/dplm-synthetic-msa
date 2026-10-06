@@ -1,0 +1,4 @@
+{
+  "reason": "Replace deep CspB (19587 distinct nonquery rows) with shallower natural-family antifreeze, before any OpenFold prediction. Top7 retained as designed control. CspB generation already queued; retain outputs as excluded audit, not part of seven.",
+  "antifreeze_depth": 201
+}

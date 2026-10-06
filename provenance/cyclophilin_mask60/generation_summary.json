@@ -1,0 +1,44 @@
+{
+  "40% mask / 50": {
+    "length": 165,
+    "variants": 50,
+    "candidates": 64,
+    "mutations_mean": 4.5,
+    "mutations_min": 1,
+    "mutations_max": 8,
+    "identity_mean": 0.9727272727272728,
+    "identity_min": 0.9515151515151515,
+    "identity_max": 0.9939393939393939,
+    "positions_never_masked": []
+  },
+  "40% mask / 250": {
+    "length": 165,
+    "variants": 250,
+    "candidates": 272,
+    "mutations_mean": 4.408,
+    "mutations_min": 1,
+    "mutations_max": 11,
+    "identity_mean": 0.9732848484848485,
+    "identity_min": 0.9333333333333333,
+    "identity_max": 0.9939393939393939,
+    "first_50_match_previous": true,
+    "positions_never_masked": []
+  },
+  "60% mask / 50": {
+    "variants": 50,
+    "candidates": 64,
+    "masked_positions_per_candidate": 99,
+    "mutations_mean": 6.58,
+    "mutations_min": 2,
+    "mutations_max": 11,
+    "identity_mean": 0.9601212121212122,
+    "identity_min": 0.9333333333333333,
+    "identity_max": 0.9878787878787879,
+    "pairwise_identity_mean": 0.9500843731431968,
+    "neff": {
+      "0.8": 1.0,
+      "0.9": 1.0,
+      "0.95": 2.2640536612426523
+    }
+  }
+}

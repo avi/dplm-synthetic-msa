@@ -1,0 +1,16 @@
+{
+  "fasta": "examples/query.fasta",
+  "out_dir": "out/myoglobin_mask40",
+  "num_variants": 50,
+  "filter_identity": false,
+  "adaptive_mask": false,
+  "mask_fraction": 0.4,
+  "sampling_strategy": "gumbel_argmax",
+  "temperature": 1,
+  "model_name": "airkingbd/dplm_650m",
+  "model_revision": "7a7e651baa667d094aba05e9dc1cf52a3332110a",
+  "seed": 42,
+  "max_iter": 100,
+  "batch_size": 16,
+  "max_candidates": 2048
+}

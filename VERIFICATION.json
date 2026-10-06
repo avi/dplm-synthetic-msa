@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-06",
+  "unit_tests_passed": 10,
+  "structures_recomputed": 305,
+  "conditions_checked": 61,
+  "proteins": 10,
+  "metrics": [
+    "ca_rmsd",
+    "tm_score",
+    "ca_lddt"
+  ],
+  "tolerance": 1e-05,
+  "input_preparation_examples_checked": true,
+  "generation_cli_help_checked": true,
+  "generation_example_command_checked_without_submission": true,
+  "python_sources_compile": true,
+  "local_report_links_checked": true,
+  "text_privacy_scan_passed": true,
+  "new_gpu_runs_for_release_preparation": 0,
+  "license_status": "MIT",
+  "secret_pattern_scan_passed": true,
+  "security_audit": "SECURITY_AUDIT.json"
+}

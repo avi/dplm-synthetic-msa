@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "numpy": "2.5.1",
+    "biopython": "1.88",
+    "tmtools": "0.3.0",
+    "matplotlib": "3.11.1",
+    "modal": "1.5.5",
+    "requests": "2.34.2"
+  },
+  "source_sha256": {
+    "modal_openfold3.py": "dcd216bdac99f9d6c2bac346776e7fb2a242bf97e1af1d2c61640f06c4efb86d",
+    "metrics.py": "d6a2baac02681ff204e52f063d21ca485155e756396dbba67847361f6b9316f3",
+    "modal_dplm_homologs.py": "c0161b231c42a0724c4f407912d607b7488a06cf9dc5f2c9db0795d566cde3dd"
+  },
+  "reference_sources": {
+    "ubiquitin": "https://files.rcsb.org/download/1UBQ.cif",
+    "myoglobin": "https://files.rcsb.org/download/1MBN.cif",
+    "lysozyme": "https://files.rcsb.org/download/1LYZ.cif",
+    "ci2": "https://files.rcsb.org/download/2CI2.cif",
+    "top7": "https://files.rcsb.org/download/1QYS.cif",
+    "acylphosphatase": "https://files.rcsb.org/download/1APS.cif",
+    "antifreeze": "https://files.rcsb.org/download/1MSI.cif"
+  },
+  "openfold_code_evidence": {
+    "query_row_and_main_msa_toggles": "https://github.com/aqlaboratory/openfold-3/blob/af111e167d3035fb10a048d2c1608243b660b443/openfold3/core/data/pipelines/sample_processing/msa.py#L557-L623",
+    "msa_profile_before_subsampling": "https://github.com/aqlaboratory/openfold-3/blob/af111e167d3035fb10a048d2c1608243b660b443/openfold3/core/data/pipelines/sample_processing/msa.py#L323-L329",
+    "embedding_depth": "https://github.com/aqlaboratory/openfold-3/blob/af111e167d3035fb10a048d2c1608243b660b443/openfold3/projects/of3_all_atom/config/model_config.py#L249-L250",
+    "no_msa_gap_row_zero_profile": "https://github.com/aqlaboratory/openfold-3/blob/af111e167d3035fb10a048d2c1608243b660b443/openfold3/core/data/primitives/featurization/msa.py#L274-L285"
+  },
+  "date_utc": "2026-10-06"
+}

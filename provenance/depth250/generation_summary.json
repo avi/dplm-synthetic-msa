@@ -1,0 +1,41 @@
+{
+  "dhfr": {
+    "length": 159,
+    "variants": 250,
+    "candidates": 256,
+    "mutations_mean": 27.388,
+    "mutations_min": 18,
+    "mutations_max": 38,
+    "identity_mean": 0.827748427672956,
+    "identity_min": 0.7610062893081762,
+    "identity_max": 0.8867924528301887,
+    "first_50_match_previous": true,
+    "positions_never_masked": []
+  },
+  "thioredoxin": {
+    "length": 108,
+    "variants": 250,
+    "candidates": 256,
+    "mutations_mean": 16.38,
+    "mutations_min": 7,
+    "mutations_max": 24,
+    "identity_mean": 0.8483333333333334,
+    "identity_min": 0.7777777777777778,
+    "identity_max": 0.9351851851851852,
+    "first_50_match_previous": true,
+    "positions_never_masked": []
+  },
+  "cyclophilin": {
+    "length": 165,
+    "variants": 250,
+    "candidates": 272,
+    "mutations_mean": 4.408,
+    "mutations_min": 1,
+    "mutations_max": 11,
+    "identity_mean": 0.9732848484848485,
+    "identity_min": 0.9333333333333333,
+    "identity_max": 0.9939393939393939,
+    "first_50_match_previous": true,
+    "positions_never_masked": []
+  }
+}

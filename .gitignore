@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+out/
+*.local.json
+
+# Local credentials and account configuration
+.env
+.env.*
+!.env.example
+.modal/
+.netrc
+.pypirc
+*.pem
+*.key
