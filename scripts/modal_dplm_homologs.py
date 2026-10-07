@@ -117,8 +117,68 @@ def read_query(fasta: str, sequence: str) -> str:
     return sequence
 
 
+def keep_schedule(spec: str) -> list[float]:
+    """One keep fraction per evolutionary round; empty means legacy one-shot."""
+    if not spec.strip():
+        return []
+    values = [float(part.strip()) for part in spec.split(",")]
+    if any(not 0 <= value < 1 for value in values):
+        raise ValueError("keep_fractions must be comma-separated fractions in [0, 1)")
+    return values
+
+
+def evolve_batch(query, size, mutable, keeps, sample_batch, rng):
+    """Evolve independent lineages through a batch sampler of (parents, masks).
+
+    Masked residues may stay unchanged or revert. Only terminal descendants are
+    pooled; no identity selection is applied between rounds. Invalid intermediate
+    outputs terminate only their own lineage and are returned for rejection.
+    """
+    parents = [query] * size
+    histories = [[] for _ in parents]
+    active = list(range(size))
+    for round_no, keep in enumerate(keeps, 1):
+        if not active:
+            break
+        nmask = max(1, round(len(mutable) * (1 - keep)))
+        masks = [sorted(rng.sample(mutable, nmask)) for _ in active]
+        current_parents = [parents[i] for i in active]
+        children = sample_batch(current_parents, masks)
+        if len(children) != len(active):
+            raise RuntimeError("Sampler returned the wrong batch size")
+        next_active = []
+        for index, parent, child, positions in zip(active, current_parents, children, masks):
+            history = histories[index]
+            step = dict(round=round_no, sequence=child,
+                requested_keep_fraction=keep,
+                effective_keep_fraction_mutable=1 - nmask / len(mutable),
+                masked_positions_1based=[i + 1 for i in positions])
+            parents[index] = child
+            if len(child) != len(query) or set(child) - AA:
+                # Preserve the failed output for the candidate audit, but never
+                # feed it into another round or accept its earlier ancestor.
+                step.update(status="invalid_sequence", parent_mutations=None,
+                            mutations=None, identity=None, reversions=None)
+                history.append(step)
+                continue
+            masked = set(positions)
+            if any(a != b for i, (a, b) in enumerate(zip(parent, child)) if i not in masked):
+                raise RuntimeError("Sampler violated parent conditioning")
+            mutations = sum(a != b for a, b in zip(query, child))
+            step.update(parent_mutations=sum(a != b for a, b in zip(parent, child)),
+                mutations=mutations, identity=1 - mutations / len(query),
+                reversions=sum(p != q and c == q for p, c, q in zip(parent, child, query)))
+            history.append(step)
+            next_active.append(index)
+        active = next_active
+    return parents, histories
+
+
 def validate_settings(sequence: str, settings: dict) -> list[int]:
     filtering = settings.get("filter_identity", True)
+    keeps = keep_schedule(settings.get("keep_fractions", ""))
+    if keeps and settings["adaptive_mask"]:
+        raise ValueError("Iterative generation requires --no-adaptive-mask")
     if len(sequence) > 1022:
         raise ValueError("This wrapper limits queries to 1022 residues")
     if filtering and not 0 < settings["target_identity"] < 1:
@@ -149,7 +209,7 @@ def validate_settings(sequence: str, settings: dict) -> list[int]:
         raise ValueError("At least one position must be mutable")
     if filtering and (target < 1 or target > len(mutable)):
         raise ValueError("Rounded target mutation count is infeasible for mutable positions")
-    if filtering and not settings["adaptive_mask"] and round(len(mutable) * settings["mask_fraction"]) < target:
+    if filtering and not keeps and not settings["adaptive_mask"] and round(len(mutable) * settings["mask_fraction"]) < target:
         raise ValueError("Mask too small to reach target; increase mask_fraction")
     return sorted(mutable)
 
@@ -238,6 +298,7 @@ def generate_homologs(sequence: str, settings: dict, run_id: str) -> dict:
     root.mkdir(parents=True, exist_ok=True)
     rows, accepted, seen = [], [], set()
     nmask = max(target if target is not None else 1, min(len(mutable), round(len(mutable) * settings["mask_fraction"])))
+    keeps = keep_schedule(settings.get("keep_fractions", ""))
     batch_no = 0
     lower_mask, upper_mask = None, None
     metadata = dict(settings=settings, query=sequence, query_length=len(sequence),
@@ -245,33 +306,43 @@ def generate_homologs(sequence: str, settings: dict, run_id: str) -> dict:
                     target_mutations=target, effective_target_identity=None if target is None else 1-target/len(sequence),
                     gpu=torch.cuda.get_device_name(), torch_version=str(torch.__version__),
                     started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                    run_id=run_id, mask_controller="bracketed_v2" if settings["adaptive_mask"] else "fixed_fraction")
+                    run_id=run_id, mask_controller="iterative_keep_schedule" if keeps else ("bracketed_v2" if settings["adaptive_mask"] else "fixed_fraction"),
+                    generation_rounds=len(keeps) if keeps else 1)
     while len(accepted) < settings["num_variants"] and len(rows) < settings["max_candidates"]:
         bsize = min(settings["batch_size"], settings["max_candidates"] - len(rows))
-        inputs = query_tokens.repeat(bsize, 1)
-        partial = torch.ones_like(inputs, dtype=torch.bool)
-        masks = []
-        for j in range(bsize):
-            positions = sorted(random.sample(mutable, nmask))
-            masks.append(positions)
-            partial[j, torch.tensor(positions, device="cuda") + 1] = False
-        with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
-            output = model.generate(input_tokens=inputs, tokenizer=tokenizer,
-                                    max_iter=settings["max_iter"],
-                                    temperature=settings["temperature"],
-                                    sampling_strategy=settings["sampling_strategy"],
-                                    partial_masks=partial, disable_resample=True)
-        if not torch.equal(output[partial], inputs[partial]):
-            raise RuntimeError("Sampler violated fixed query conditioning")
-        seqs = ["".join(s.split()) for s in tokenizer.batch_decode(output, skip_special_tokens=True)]
+        def sample_batch(parents, masks):
+            inputs = (query_tokens.repeat(len(parents), 1) if all(p == sequence for p in parents)
+                      else tokenizer(parents, return_tensors="pt")["input_ids"].cuda())
+            partial = torch.ones_like(inputs, dtype=torch.bool)
+            for j, positions in enumerate(masks):
+                partial[j, torch.tensor(positions, device="cuda") + 1] = False
+            with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
+                output = model.generate(input_tokens=inputs, tokenizer=tokenizer,
+                                        max_iter=settings["max_iter"],
+                                        temperature=settings["temperature"],
+                                        sampling_strategy=settings["sampling_strategy"],
+                                        partial_masks=partial, disable_resample=True)
+            if not torch.equal(output[partial], inputs[partial]):
+                raise RuntimeError("Sampler violated fixed parent conditioning")
+            return ["".join(s.split()) for s in tokenizer.batch_decode(output, skip_special_tokens=True)]
+
+        if keeps:
+            seqs, histories = evolve_batch(sequence, bsize, mutable, keeps, sample_batch, random)
+            masks = [[p - 1 for p in h[-1]["masked_positions_1based"]] for h in histories]
+        else:
+            masks = [sorted(random.sample(mutable, nmask)) for _ in range(bsize)]
+            seqs = sample_batch([sequence] * bsize, masks)
+            histories = [None] * bsize
         counts = []
-        for seq, positions in zip(seqs, masks):
+        for seq, positions, history in zip(seqs, masks, histories):
             status, mutations = candidate_status(seq, sequence, target,
                 settings["identity_tolerance"], protected, seen)
             row = dict(candidate=len(rows)+1, batch=batch_no, sequence=seq,
                        masked_positions_1based=[i+1 for i in positions],
                        mutations=mutations, identity=None if mutations is None else 1-mutations/len(sequence),
                        status=status)
+            if history is not None:
+                row["lineage"] = history
             if mutations is not None:
                 counts.append(mutations)
             if status == "accepted":
@@ -288,7 +359,7 @@ def generate_homologs(sequence: str, settings: dict, run_id: str) -> dict:
         (root/"candidates.jsonl").write_text("".join(json.dumps(r)+"\n" for r in rows))
         (root/"accepted.json").write_text(json.dumps(accepted, indent=2))
         artifacts.commit()
-        print(f"Batch {batch_no}: mask={nmask}, mutations={counts}, accepted={len(accepted)}/{settings['num_variants']}", flush=True)
+        print(f"Batch {batch_no}: rounds={len(keeps) if keeps else 1}, mutations={counts}, accepted={len(accepted)}/{settings['num_variants']}", flush=True)
         if settings["adaptive_mask"] and counts:
             # Adjust next batch's mask size, not any decoded sequence.
             nmask, lower_mask, upper_mask = next_mask_size(
@@ -306,6 +377,7 @@ def main(fasta: str = "", sequence: str = "", out_dir: str = "out/dplm_homologs"
          num_variants: int = 50, target_identity: float = 0.85,
          identity_tolerance: float = 0.0, filter_identity: bool = True, fixed_positions: str = "",
          mutable_positions: str = "", mask_fraction: float = 0.4,
+         keep_fractions: str = "",
          adaptive_mask: bool = True, model_name: str = "airkingbd/dplm_650m",
          model_revision: str = "main", max_iter: int = 100,
          sampling_strategy: str = "gumbel_argmax", temperature: float = 1.0,
@@ -354,6 +426,16 @@ def write_outputs(result: dict, root: Path):
     (root/"query.fasta").write_text(query)
     (root/"variants.fasta").write_text(variants)
     (root/"synthetic.a3m").write_text(query+variants)
+    if result["accepted"] and "lineage" in result["accepted"][0]:
+        # Same selected lineages at each depth; earlier pools can contain duplicates.
+        rounds = root / "rounds"
+        rounds.mkdir(exist_ok=True)
+        for r in range(len(result["accepted"][0]["lineage"])):
+            pool = query + "".join(
+                f">lineage_{i:03d} round={r+1} identity={row['lineage'][r]['identity']:.6f}\n"
+                f"{row['lineage'][r]['sequence']}\n"
+                for i, row in enumerate(result["accepted"], 1))
+            (rounds / f"round_{r+1:02d}.a3m").write_text(pool)
     (root/"metadata.json").write_text(json.dumps(result["metadata"], indent=2))
     (root/"candidates.jsonl").write_text("".join(json.dumps(r)+"\n" for r in result["candidates"]))
     print(json.dumps(result["metadata"], indent=2))

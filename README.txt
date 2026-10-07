@@ -81,6 +81,45 @@ sampler has different temperature behavior. We make substitution-only pools,
 so the generated A3M is already aligned. Unique variants are not necessarily
 independent evolutionary observations or functional proteins.
 
+ITERATIVE MUTATION PILOT
+  python scripts/run_generation.py --config examples/generate_50_iterative.json --execute
+
+This makes 50 terminal descendants from independent query-started lineages.
+Five rounds each keep 90% of the mutable residues of the immediate parent,
+resampling a fresh random 10% (rounded, minimum one position). Mutations may
+accumulate, stay unchanged, change again, or revert. This is iterative model
+sampling, without selection for fitness. The final mutation rate is measured,
+not imposed. The example uses the same pinned model, seed and diffusion steps
+as the one-shot runs, with identity filtering and adaptive masking disabled.
+
+keep_fractions is a comma-separated schedule: "0.9,0.9,0.9,0.9,0.9" for constant
+retention, or e.g. "0.8,0.85,0.9,0.95" for increasing retention. Fractions apply
+to mutable positions; fixed positions always retain their query residues.
+An empty schedule preserves one-shot behavior. max_iter remains the number of
+DPLM denoising steps PER ROUND. Iterative mode requires adaptive_mask=false;
+if identity filtering is enabled it applies only to terminal descendants.
+mask_fraction is ignored in iterative mode. max_candidates counts lineages,
+not intermediate descendants. Final pools exclude the query and duplicates.
+
+An invalid intermediate sequence terminates and rejects that lineage while
+other lineages continue. Its failed output and partial history are retained;
+earlier valid ancestors are never substituted into the final pool.
+
+candidates.jsonl records every round's sequence, masked positions, changes
+from its parent, query identity and reversions. rounds/round_NN.a3m provides
+the same final-selected lineages at earlier depths; those earlier pools can
+contain duplicate/query rows. synthetic.a3m contains query + terminal variants.
+Compare final pools at matched depth against existing single-pass pools, then
+fold the original query with each pool and score against the same reference.
+A fixed number of rounds does not guarantee matched final identity, and this
+pilot uses more model sampling than a one-shot run. Summarize a completed pilot:
+
+  python scripts/analyze_iterative.py --protein myoglobin --generation out/myoglobin_iterative_keep90_r5 --out out/myoglobin_iterative_keep90_r5/analysis.json
+
+Add --predictions PATH after folding to include reference structure scores.
+Original release checksums
+remain a record of the original payload and will flag these source edits.
+
 EXAMPLE 2 — FOLD THE QUERY WITH MATCHED INPUTS
 This works immediately with the included example results; no regeneration is
 needed. It creates no-MSA, query-only, synthetic, and natural-MSA conditions:

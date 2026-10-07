@@ -2,7 +2,7 @@
 import argparse,json,shlex,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-ALLOWED=set('fasta sequence out_dir num_variants target_identity identity_tolerance filter_identity fixed_positions mutable_positions mask_fraction adaptive_mask model_name model_revision max_iter sampling_strategy temperature seed batch_size max_candidates run_id recover_run_id'.split())
+ALLOWED=set('fasta sequence out_dir num_variants target_identity identity_tolerance filter_identity fixed_positions mutable_positions mask_fraction keep_fractions adaptive_mask model_name model_revision max_iter sampling_strategy temperature seed batch_size max_candidates run_id recover_run_id'.split())
 BOOL={'filter_identity','adaptive_mask'}
 def command(config):
  unknown=set(config)-ALLOWED
